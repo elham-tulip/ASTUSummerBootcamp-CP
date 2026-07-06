@@ -1,19 +1,16 @@
-from collections import deque
-t = int(input())
-
+t=int(input())
 for _ in range(t):
-    n = int(input())
-    d = deque(map(int, input().split()))
-
-    ok = True
-
-    for x in range(1, n + 1):
-        if d and d[0] == x:
-            d.popleft()
-        elif d and d[-1] == x:
-            d.pop()
+    n=int(input())
+    arr=list(map(int,input().split()))
+    left=0
+    right=n-1
+    for i in range(1,n):
+        if i == arr[left]:
+            left+=1
+        elif i ==arr[right]:
+            right-=1
         else:
-            ok = False
+            print("NO")
             break
-
-    print("YES" if ok else "NO")
+    else:
+        print("YES")            
